@@ -40,7 +40,7 @@ const addOrUpdateTask = () => {
     updateTaskContainer()
     reset()
 };
-
+//Displays task added to UI
 const updateTaskContainer = () => {
     tasksContainer.innerHTML = "";
 
@@ -59,7 +59,7 @@ const updateTaskContainer = () => {
     );
 };
 
-
+//Deletes added task
 const deleteTask = (buttonEl) => {
     const dataArrIndex = taskData.findIndex(
         (item) => item.id === buttonEl.parentElement.id
@@ -69,7 +69,7 @@ const deleteTask = (buttonEl) => {
     taskData.splice(dataArrIndex, 1);
     localStorage.setItem("data", JSON.stringify(taskData));
 }
-
+//Edits added task
 const editTask = (buttonEl) => {
     const dataArrIndex = taskData.findIndex(
         (item) => item.id === buttonEl.parentElement.id
@@ -85,7 +85,7 @@ const editTask = (buttonEl) => {
 
     taskForm.classList.toggle("hidden");
 }
-
+//Resets Input values in the form to empty string
 const reset = () => {
     addOrUpdateTaskBtn.innerText = "Add Task";
     titleInput.value = "";
@@ -120,7 +120,7 @@ discardBtn.addEventListener("click", () => {
     confirmCloseDialog.close();
     reset()
 });
-
+//Submits form of user added task
 taskForm.addEventListener("submit", (e) => {
     e.preventDefault();
 
